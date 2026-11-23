@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VoltWatch Bengaluru · Asset Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='2') }}">
+</head>
+<body>
+<header class="bar">
+  <div class="brand"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M18 2 6 18h8l-2 12 14-18h-8z" fill="#38e1c8"/></svg>
+    <div><b>VoltWatch</b><span>Bengaluru charging grid</span></div></div>
+  <div class="legend" aria-label="Status legend"><i class="d healthy"></i>Healthy<i class="d watch"></i>Watch<i class="d high"></i>High risk<i class="d critical"></i>Critical</div>
+</header>
+
+<main>
+  <section class="kpis" id="kpis" aria-label="Fleet summary"></section>
+
+  <section class="queue"><div class="bh"><h2>Stations</h2><p class="muted">Ranked by predicted risk. Select one to investigate.</p></div><div id="queue"></div></section>
+
+  <section class="brief" id="brief"></section>
+
+  <section class="flow">
+    <div class="pickers" id="pickers" aria-label="Parameters"></div>
+    <ol class="steps" id="steps"></ol>
+    <div class="stage" id="stage" aria-live="polite"></div>
+    <div class="nav"><button id="prev" class="ghost">Back</button><span id="stepno"></span><button id="next" class="solid">Next question</button></div>
+  </section>
+
+
+  <section class="foot">
+    <div class="block"><div class="bh"><h2>Five months at a glance</h2><p class="muted" id="hist-sub"></p></div><div class="cv tall"><canvas id="hist"></canvas></div></div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='app.js', v='2') }}"></script>
+</body>
+</html>
